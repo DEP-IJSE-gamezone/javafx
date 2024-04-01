@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="root" prefHeight="444.0" prefWidth="539.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep12.javafxml.controller.Controller">
+   <children>
+      <ImageView fx:id="imgroad" fitHeight="527.0" fitWidth="407.0" layoutX="48.0" layoutY="-2.0" onKeyPressed="#OnKeyPressedRoad" onKeyReleased="#OnKeyReleasedRoad" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="48.0" AnchorPane.rightAnchor="84.0">
+         <image>
+            <Image url="@../image/road-top-view.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgroad1" fitHeight="407.0" fitWidth="427.0" layoutX="48.0" layoutY="19.0" onKeyPressed="#OnKeyPressedRoad" onKeyReleased="#OnKeyReleasedRoad" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="48.0" AnchorPane.rightAnchor="84.0">
+         <image>
+            <Image url="@../image/road-top-view.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgCar" fitHeight="222.0" fitWidth="113.0" layoutX="48.0" layoutY="283.0" onKeyPressed="#OnKeyPressedCar" onKeyReleased="#OnKeyRealesedCar" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/vehicle.png" />
+         </image>
+         <effect>
+            <Glow />
+         </effect>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.effect.MotionBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="515.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep12.fx.media_player.controller.MainViewController">
+   <children>
+      <ImageView fx:id="rootImge" fitHeight="515.0" fitWidth="603.0" layoutX="-85.0" layoutY="-140.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../images/background.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnClose" cancelButton="true" layoutX="567.0" layoutY="-1.0" mnemonicParsing="false" onAction="#btnCloseOnAction" prefHeight="37.0" prefWidth="41.0" style="-fx-background-color: black;" textFill="#d31717" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <graphic>
+            <ImageView fitHeight="76.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/no.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <MenuBar layoutX="7.0" layoutY="1.0" opacity="0.87" prefHeight="27.0" prefWidth="548.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu text="_Media">
+            <items>
+                  <MenuItem text="Open _File" />
+                  <MenuItem text="_Open Multiple Files..." />
+                  <MenuItem text="Open D_irectory..." />
+              <MenuItem text="Open _Disc..." />
+                  <MenuItem text="Open _NetworkStream..." />
+                  <MenuItem text="Open _Capture Device" />
+                  <MenuItem text="Open _Recent Media" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem text="_Quit" />
+            </items>
+          </Menu>
+          <Menu text="_Playback">
+            <items>
+              <MenuItem text="Render" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem text="Speed" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem text="Jump Forward" />
+                  <MenuItem text="Jump Backword" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem text="Play" />
+                  <MenuItem text="Stop" />
+                  <MenuItem text="Previous" />
+                  <MenuItem text="Record" />
+            </items>
+          </Menu>
+          <Menu text="_Audio">
+            <items>
+              <MenuItem text="Audio Device" />
+                  <MenuItem text="Increase Volume" />
+                  <MenuItem text="Decrease Volume" />
+                  <MenuItem text="Mute" />
+            </items>
+          </Menu>
+            <Menu text="_Video">
+               <items>
+                  <MenuItem text="Fullscreen" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem text="Zoom" />
+                  <MenuItem text="Aspect Ratio" />
+               </items>
+            </Menu>
+            <Menu text="Subti_tle">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Add Subtitle File..." />
+               </items>
+            </Menu>
+            <Menu text="_Tools" />
+            <Menu text="V_iew" />
+            <Menu text="_Help">
+               <items>
+                  <MenuItem text="About" />
+                  <MenuItem text="Help" />
+               </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+      <Slider fx:id="slrbar" layoutX="23.0" layoutY="290.0" prefHeight="16.0" prefWidth="549.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="40.0" />
+      <HBox fx:id="hBoxContainer" layoutX="52.0" layoutY="533.0" spacing="30.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="25.0">
+         <children>
+            <Button fx:id="btnPrevius" alignment="CENTER" mnemonicParsing="false" onAction="#btnPreviuosOnAction" HBox.hgrow="SOMETIMES">
+               <graphic>
+                  <ImageView fitHeight="46.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/back-button.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnPlay" mnemonicParsing="false" onAction="#btnPlayOnAction">
+               <graphic>
+                  <ImageView fitHeight="46.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/play.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnPause" mnemonicParsing="false" onAction="#btnPauseOnAction">
+               <graphic>
+                  <ImageView fitHeight="46.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/pause-button(1).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnNext" mnemonicParsing="false" onAction="#btnNextOnAction">
+               <graphic>
+                  <ImageView fitHeight="46.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/next-button.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <Rectangle fx:id="rctTime" arcHeight="5.0" arcWidth="5.0" height="71.0" layoutX="372.0" layoutY="312.0" stroke="#e1e15b" strokeType="INSIDE" width="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+         <effect>
+            <GaussianBlur>
+               <input>
+                  <MotionBlur />
+               </input>
+            </GaussianBlur>
+         </effect>
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.8109710216522217" green="0.8815789222717285" blue="0.17549951374530792" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill></Rectangle>
+      <Rectangle fx:id="rctWindow" arcHeight="5.0" arcWidth="5.0" fill="#0a0a0a" height="282.0" layoutX="36.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" width="530.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="75.0" />
+      <Label fx:id="lblTime" alignment="CENTER" contentDisplay="CENTER" layoutX="389.0" layoutY="429.0" prefHeight="71.0" prefWidth="200.0">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
