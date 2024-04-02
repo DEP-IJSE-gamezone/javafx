@@ -44,15 +44,13 @@ public class dashBoardController {
         AnchorPane.setTopAnchor(root1, 0.0);
         AnchorPane.setRightAnchor(root1, 0.0);
         AnchorPane.setLeftAnchor(root1, 0.0);
-      //  System.out.println("LOaded");
+        //System.out.println("LOaded");
         FadeTransition transition = new FadeTransition(Duration.seconds(500), root1);
-        transition.setFromValue(0);
-        transition.setToValue(1);
+        transition.setFromValue(1);
+        transition.setToValue(0);
         transition.play();
     }
-    private void loadWindow(){
 
-    }
 
     public void btnLogOutOnAction(ActionEvent event) throws IOException {
        ((Stage)root.getScene().getWindow()).close();
@@ -86,13 +84,13 @@ public class dashBoardController {
 
     }
 
-    public void loadStage(AnchorPane container){
-        Stage stage = new Stage();
-        stage.setScene(new Scene(container));
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.centerOnScreen();
-        stage.setTitle("Dash Board");
-        stage.show();
-
-    }
+//    public void loadStage(AnchorPane container){
+//        Stage stage = new Stage();
+//        stage.setScene(new Scene(container));
+//        stage.initStyle(StageStyle.UNDECORATED);
+//        stage.centerOnScreen();
+//        stage.setTitle("Dash Board");
+//        stage.show();
+//
+//    }
 }

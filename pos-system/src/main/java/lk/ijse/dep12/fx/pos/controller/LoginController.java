@@ -55,16 +55,15 @@ public class LoginController {
         URL resource = getClass().getResource("/view/DashBoard.fxml");
         FXMLLoader fxmlLoader = new FXMLLoader(resource);
         AnchorPane container = fxmlLoader.load();
-//        Scene loginScene = new Scene(container);
-//        Stage loginStage = new Stage();
-//        loginStage.setScene(loginScene);
-//        loginStage.setTitle("Dash Board");
-//        loginStage.initStyle(StageStyle.UNDECORATED);
-        dashBoardController controller = fxmlLoader.getController();
-        controller.loadStage(container);
+        Scene loginScene = new Scene(container);
+        Stage loginStage = new Stage();
+        loginStage.setScene(loginScene);
+        loginStage.setTitle("Dash Board");
+        loginStage.initStyle(StageStyle.UNDECORATED);
 
-//        loginStage.show();
-//        loginStage.centerOnScreen();
+
+        loginStage.show();
+        loginStage.centerOnScreen();
 
 
     }
@@ -76,7 +75,7 @@ public class LoginController {
 
     public void onKeyPressedpwd(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER)
-            btnLogin.fire();
+           btnLogin.requestFocus();
     }
 
 }
