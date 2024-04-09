@@ -3,9 +3,11 @@ package lk.ijse.dep12.fx.notepad;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 
 public class AppInitializer extends Application {
 
@@ -15,10 +17,16 @@ public class AppInitializer extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/MainView.fxml"))));
-        primaryStage.setTitle("Note pad");
+
+        URL resource = getClass().getResource("/view/MainView.fxml");
+        FXMLLoader fxmlLoader = new FXMLLoader(resource);
+        AnchorPane container = fxmlLoader.load();
+        Scene scene = new Scene(container);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Untitled Document");
         primaryStage.show();
         primaryStage.centerOnScreen();
+
 
     }
 }
