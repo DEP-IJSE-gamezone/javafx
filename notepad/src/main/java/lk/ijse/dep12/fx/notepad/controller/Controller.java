@@ -4,35 +4,40 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.FileChooser;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import javafx.stage.Window;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
+import javafx.stage.*;
 import lk.ijse.dep12.fx.notepad.AppInitializer;
 
 import java.io.*;
 import java.net.URL;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Controller {
     public MenuItem mntAbout;
 
     public TextArea txtDisplay;
     public AnchorPane rootMain;
+    public TextField txtFind;
+    public Button btnFindClose;
 
     private boolean isalreadySaved;
     private File currentFile;
     private boolean isEdited;
     private boolean isOpened;
     private Stage newStage;
+    private int selectIndex;
 
     public void initialize() {
+        txtFind.setVisible(false);
+        btnFindClose.setVisible(false);
         //set property listener to set the title
         txtDisplay.textProperty().addListener((observble, previous, current) -> {
             if (previous.isEmpty()) isEdited = false;
@@ -106,9 +111,9 @@ public class Controller {
             controller.loadToTextArea(currentFile);
             controller.isalreadySaved = true;
             controller.isEdited = false;
-            System.out.println("curent file" + currentFile);
+            //System.out.println("curent file" + currentFile);
             controller.currentFile = currentFile;
-            System.out.println("curent file" + currentFile);
+            //  System.out.println("curent file" + currentFile);
         } else {
             loadToTextArea(currentFile);
             newStage.setTitle(currentFile.getName());
@@ -193,6 +198,48 @@ public class Controller {
         stage.centerOnScreen();
         isEdited = false;
         isalreadySaved = false;
+    }
+
+    public void mntFindOnAction(ActionEvent actionEvent) throws IOException {
+        txtFind.setVisible(true);
+        btnFindClose.setVisible(true);
+
+    }
+
+
+    public void btnFindCloseOnAction(ActionEvent actionEvent) {
+        btnFindClose.setVisible(false);
+        txtFind.setVisible(false);
+    }
+
+
+    public void OnKeyPressedFind(KeyEvent event) {
+        txtFind.requestFocus();
+        String findRegX = txtFind.getText();
+        String content = txtDisplay.getText();
+        Pattern pattern = Pattern.compile(findRegX);
+        Matcher matcher = pattern.matcher(content);
+
+        if (event.getCode() == KeyCode.ENTER) {
+            if (matcher.find(selectIndex)) {
+                selectIndex = matcher.end();
+                txtDisplay.selectRange(matcher.start(), selectIndex);
+            } else {
+                selectIndex = 0;
+            }
+        }
+    }
+
+
+    public void mntSelectAllOnAction(ActionEvent actionEvent) {
+        // can do using only selectAll()
+        String regx = ".";
+        String displayText = txtDisplay.getText();
+        Pattern compiledPattern = Pattern.compile(regx);
+        Matcher matcher = compiledPattern.matcher(displayText);
+        if (matcher.find()) {
+            txtDisplay.selectAll();
+        }
 
     }
 }
