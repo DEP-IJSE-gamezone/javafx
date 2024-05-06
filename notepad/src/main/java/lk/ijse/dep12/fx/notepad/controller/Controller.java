@@ -42,7 +42,7 @@ public class Controller {
         txtDisplay.textProperty().addListener((observble, previous, current) -> {
             if (previous.isEmpty()) isEdited = false;
             else isEdited = true;
-            System.out.println("is already " + isalreadySaved + "current file " + currentFile);
+
             if (isEdited) {
                 if (!newStage.getTitle().contains("*")) newStage.setTitle("*" + newStage.getTitle());
             }
@@ -97,7 +97,7 @@ public class Controller {
         isOpened = true;
         fileChooser();
         if (currentFile == null) return;
-        if (newStage.getTitle() != "Untitled Document") {
+        if (newStage.getTitle() != "Untitled Document - NOTE PAD") {
             Stage stage = new Stage();
             URL resource = getClass().getResource("/view/MainView.fxml");
             FXMLLoader fxmlLoader = new FXMLLoader(resource);
@@ -107,7 +107,7 @@ public class Controller {
             Scene scene = new Scene(container);
             stage.setScene(scene);
             stage.show();
-            stage.setTitle(currentFile.getName());
+            stage.setTitle(currentFile.getName()+" - NOTE PAD");
             controller.loadToTextArea(currentFile);
             controller.isalreadySaved = true;
             controller.isEdited = false;
@@ -151,7 +151,7 @@ public class Controller {
 
         if (currentFile == null) return;
         if (!currentFile.getName().contains("."))
-            currentFile = new File(currentFile.getParentFile(), currentFile.getName() + ".txt");
+            currentFile = new File(currentFile.getParentFile(), currentFile.getName() + ".txt - NOTE PAD");
 
     }
 
@@ -193,7 +193,7 @@ public class Controller {
         controller.newStage = stage;
         stage.setScene(new Scene(container));
         // stage.setTitle("Untitled Document");
-        stage.setTitle("Untitled Document");
+        stage.setTitle("Untitled Document - NOTE PAD");
         stage.show();
         stage.centerOnScreen();
         isEdited = false;
@@ -232,14 +232,18 @@ public class Controller {
 
 
     public void mntSelectAllOnAction(ActionEvent actionEvent) {
+
         // can do using only selectAll()
         String regx = ".";
+
         String displayText = txtDisplay.getText();
         Pattern compiledPattern = Pattern.compile(regx);
         Matcher matcher = compiledPattern.matcher(displayText);
         if (matcher.find()) {
             txtDisplay.selectAll();
         }
+
+
 
     }
 }

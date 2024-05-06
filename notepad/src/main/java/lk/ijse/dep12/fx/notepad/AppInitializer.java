@@ -23,7 +23,7 @@ public class AppInitializer extends Application {
         AnchorPane container = fxmlLoader.load();
         Scene scene = new Scene(container);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Untitled Document");
+        primaryStage.setTitle("Untitled Document - NOTE PAD");
         primaryStage.show();
         primaryStage.centerOnScreen();
 

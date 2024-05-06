@@ -10,7 +10,7 @@
 <?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="rootMain" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep12.fx.notepad.controller.Controller">
+<AnchorPane fx:id="rootMain" prefHeight="507.0" prefWidth="653.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep12.fx.notepad.controller.Controller">
    <children>
       <MenuBar layoutY="14.0" maxWidth="1.7976931348623157E308" prefHeight="27.0" prefWidth="401.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
@@ -84,7 +84,7 @@
             </Menu>
         </menus>
       </MenuBar>
-      <TextArea fx:id="txtDisplay" layoutY="27.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="30.0" />
+      <TextArea fx:id="txtDisplay" layoutY="27.0" prefHeight="447.0" prefWidth="706.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="30.0" />
       <TextField fx:id="txtFind" layoutX="394.0" layoutY="38.0" onKeyPressed="#OnKeyPressedFind" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0" />
       <Button fx:id="btnFindClose" layoutX="564.0" layoutY="38.0" mnemonicParsing="false" onAction="#btnFindCloseOnAction" prefHeight="16.0" prefWidth="33.0" text="X" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0" />
    </children>
